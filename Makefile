@@ -1,3 +1,5 @@
+.PHONY: up down logs backup restore shell dbshell reset clean doom
+
 PLUGINS = ./plugins
 THEMES = ./themes
 DATA = ./data
@@ -25,7 +27,7 @@ dbshell:
 	docker exec -it wp-db bash
 
 reset:
-	rm -rf data backup
+	rm -rf $(DATA) $(BACKUP)
 
 clean:
 	rm -rf $(THEMES)/twentytwentythree
