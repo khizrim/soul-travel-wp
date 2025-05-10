@@ -30,5 +30,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd /root/wordpress-docker
-            docker-compose down
-            docker-compose up -d
+            make down
+            make up
+            sleep 10
+            make clean
+

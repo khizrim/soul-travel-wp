@@ -1,4 +1,6 @@
-# Makefile
+PLUGINS = ./plugins
+THEMES = ./themes
+DATA = ./data
 
 up:
 	docker compose up -d
@@ -25,9 +27,11 @@ reset:
 	rm -rf data backup
 
 clean:
-	docker exec wp-app wp theme delete $(docker exec wp-app wp theme list --field=name | grep -v soul-travel-wp)
-	docker exec wp-app wp plugin delete $(docker exec wp-app wp plugin list --field=name --status=inactive)
+	rm -rf $(THEMES)/twentytwentythree
+	rm -rf $(THEMES)/twentytwentyfour
+	rm -rf $(THEMES)/twentytwentyfive
+	rm -rf $(PLUGINS)/hello.php
 
 doom:
 	docker compose down -v --remove-orphans
-	rm -rf data plugins backup
+	make clean
