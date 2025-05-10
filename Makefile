@@ -31,6 +31,7 @@ clean:
 	rm -rf $(THEMES)/twentytwentythree
 	rm -rf $(THEMES)/twentytwentyfour
 	rm -rf $(THEMES)/twentytwentyfive
+	rm -rf $(PLUGINS)/akismet
 	rm -rf $(PLUGINS)/hello.php
 
 doom:
