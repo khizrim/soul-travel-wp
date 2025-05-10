@@ -13,7 +13,7 @@ logs:
 	docker-compose logs -f
 
 backup:
-	docker exec wp-db sh -c 'exec mysqldump -u root -p$$MYSQL_ROOT_PASSWORD $$MYSQL_DATABASE' > $(BACKUP)/backup.sql
+	docker exec wp-app mysqldump -u root -p$$MYSQL_ROOT_PASSWORD $$MYSQL_DATABASE > $(BACKUP)/backup.sql
 
 restore:
 	docker exec -i wp-db sh -c 'exec mysql -u root -p$$MYSQL_ROOT_PASSWORD $$MYSQL_DATABASE' < $(BACKUP)/backup.sql
